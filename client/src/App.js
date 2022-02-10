@@ -1,9 +1,6 @@
 import React from "react";
-import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
-import { Stack, Box } from "@mui/material";
-import AppPaperMui from "./AppPaperMui";
-import Card from "./components/ui/Card";
-import Wrapper from "./components/Wrapper";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import * as AuthComp from "./components/AuthComp";
 
 const theme = createTheme({
   palette: {
@@ -12,20 +9,11 @@ const theme = createTheme({
 });
 
 function App() {
-  const themeAccessor = useTheme();
+  const [auth, setAuth] = React.useState(false);
+
   return (
     <ThemeProvider theme={theme}>
-      <AppPaperMui
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Card width="35%">
-          <Wrapper />
-        </Card>
-      </AppPaperMui>
+      {!auth ? <AuthComp.default /> : <p>AUTHENTICATED</p>}
     </ThemeProvider>
   );
 }

@@ -32,7 +32,7 @@ TabPanel.propTypes = {
 
 const Content = ({ choice }) => {
   return (
-    <Box sx={{ height: "20rem", p: "1rem" }}>
+    <Box sx={{ minHeight: "20rem", p: "1rem" }}>
       <TabPanel value={choice} index={choice}>
         {choice === 0 ? <SignIn /> : <SignUp />}
       </TabPanel>
@@ -41,3 +41,8 @@ const Content = ({ choice }) => {
 };
 
 export default Content;
+
+/**
+ * width: 40rem;
+    min-width: 23%;
+ */
